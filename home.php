@@ -92,6 +92,17 @@ $crudKategorije = new DatabaseKategorije("aurabaza");
                 });
         });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".radiodugme").change(function(){
+                var vrednost = $("input[name='vote']:checked").val();
+                $.get("prikazGlasanja.php", { glas: vrednost },
+                function(data){
+                    $("#poll").html(data);
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -242,6 +253,33 @@ $crudKategorije = new DatabaseKategorije("aurabaza");
     </section>
     <div class = "parallax4">
         </div>
+        
+        <div class="container1">
+        <?php
+        include "oceneKonekcija.php";
+        $sql="SELECT * FROM ocene";
+        $rezultat = $mysqli->query($sql);
+        ?>
+
+        <div id="poll">
+        <h2>Ocenite rad korisnickog sistema:</h2>
+        <form>
+        <?php
+        while($red = $rezultat->fetch_object()){
+        ?>
+        <?php echo $red->naziv;?>
+        <input type="radio" name="vote" value="<?php echo $red->id;?>" class="radiodugme">
+        <br>
+        <br>
+        <?php
+        }
+        $mysqli->close();
+        ?>
+        </form>
+        </div>
+        
+             
+    </div>
      <!-----------Smooth scroll-------------->
 
      <script src="smooth-scroll.js">

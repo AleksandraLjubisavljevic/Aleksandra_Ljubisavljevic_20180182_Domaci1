@@ -351,3 +351,25 @@ body
 body{
     background-color: #e8f6fc;
 }
+.anketa{
+    box-shadow: none;
+    padding: 8px 25px;
+    border: none;
+    color: #e77e7e;
+    display: block;
+    margin-left: 31vw;
+    margin-right: auto;
+}
+.container1{
+    background: url("https://media.giphy.com/media/KRpkFGGHWEjKg/giphy.gif") no-repeat;
+    background-color: red;
+     background-size: cover;
+     border: 0.2vw solid rgb(238, 16, 90);
+     border-radius: 5%;
+     width: 25vw;
+     height: 50vh;
+     opacity: 0.5;
+     margin-top: 10vh;
+     margin-left: 37.5vw;
+     position: absolute;
+ }
